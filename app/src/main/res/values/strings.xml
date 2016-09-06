@@ -1,21 +1,14 @@
 <resources>
     <string name="app_name">KLSurvey</string>
     <string name="BSM">标识码</string>
-    <string name="township">乡镇</string>
-    <string name="village">村</string>
-    <string name="principalOfVillage">村负责人</string>
-    <string name="tel">联系电话</string>
-    <string name="number">编号</string>
-    <string name="JBNTTBH">基本农田图斑号(*)</string>
-    <string name="ZM">组名</string>
-    <string name="XDM">小地名</string>
-    <string name="CBR">承包人(*)</string>
-    <string name="MJ">面积</string>
-    <string name="GDLX">耕地类型</string>
-    <string name="remarks">备注</string>
-    <string name="DCR">调查人</string>
-    <string name="ZFZR">组负责人</string>
-    <string name="JLR">记录人</string>
+    <string name="field1">字段1</string>
+
+    <string name="field2">字段2</string>
+    <string name="field2_v1">值1</string>
+    <string name="field2_v2">值2</string>
+
+    <string name="field3">字段3</string>
+
     <string name="inputOK">确定</string>
     <string name="inputCancel">取消</string>
     <string name="takePhoto">拍照</string>

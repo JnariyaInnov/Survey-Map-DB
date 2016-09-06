@@ -127,64 +127,17 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
             cellA2.setCellStyle(alignStyle);
 
             HSSFCell cellA3=sheetHeader.createCell(2,Cell.CELL_TYPE_STRING);
-            cellA3.setCellValue("乡镇");
+            cellA3.setCellValue("字段1");
             cellA3.setCellStyle(alignStyle);
 
             HSSFCell cellA4=sheetHeader.createCell(3,Cell.CELL_TYPE_STRING);
-            cellA4.setCellValue("村");
+            cellA4.setCellValue("字段2");
             cellA4.setCellStyle(alignStyle);
 
             HSSFCell cellA5=sheetHeader.createCell(4,Cell.CELL_TYPE_STRING);
-            cellA5.setCellValue("村负责人");
+            cellA5.setCellValue("字段3");
             cellA5.setCellStyle(alignStyle);
 
-            HSSFCell cellA6=sheetHeader.createCell(5,Cell.CELL_TYPE_STRING);
-            cellA6.setCellValue("联系电话");
-            cellA6.setCellStyle(alignStyle);
-
-            HSSFCell cellA7=sheetHeader.createCell(6,Cell.CELL_TYPE_STRING);
-            cellA7.setCellValue("编号");
-            cellA7.setCellStyle(alignStyle);
-
-            HSSFCell cellA8=sheetHeader.createCell(7,Cell.CELL_TYPE_STRING);
-            cellA8.setCellValue("基本农田图斑号");
-            cellA8.setCellStyle(alignStyle);
-
-            HSSFCell cellA9=sheetHeader.createCell(8,Cell.CELL_TYPE_STRING);
-            cellA9.setCellValue("组名");
-            cellA9.setCellStyle(alignStyle);
-
-            HSSFCell cellA10=sheetHeader.createCell(9,Cell.CELL_TYPE_STRING);
-            cellA10.setCellValue("小地名");
-            cellA10.setCellStyle(alignStyle);
-
-            HSSFCell cellA11=sheetHeader.createCell(10,Cell.CELL_TYPE_STRING);
-            cellA11.setCellValue("承包人");
-            cellA11.setCellStyle(alignStyle);
-
-            HSSFCell cellA12=sheetHeader.createCell(11,Cell.CELL_TYPE_STRING);
-            cellA12.setCellValue("面积");
-            cellA12.setCellStyle(alignStyle);
-
-            HSSFCell cellA13=sheetHeader.createCell(12,Cell.CELL_TYPE_STRING);
-            cellA13.setCellValue("耕地类型");
-            cellA13.setCellStyle(alignStyle);
-
-            HSSFCell cellA14=sheetHeader.createCell(13,Cell.CELL_TYPE_STRING);
-            cellA14.setCellValue("备注");
-            cellA14.setCellStyle(alignStyle);
-
-            HSSFCell cellA15=sheetHeader.createCell(14,Cell.CELL_TYPE_STRING);
-            cellA15.setCellValue("调查人");
-            cellA15.setCellStyle(alignStyle);
-
-            HSSFCell cellA16=sheetHeader.createCell(15,Cell.CELL_TYPE_STRING);
-            cellA16.setCellValue("组负责人");
-            cellA16.setCellStyle(alignStyle);
-
-            HSSFCell cellA17=sheetHeader.createCell(16,Cell.CELL_TYPE_STRING);
-            cellA17.setCellValue("记录人");
-            cellA17.setCellStyle(alignStyle);
 
             String sql="select * from "+tableName; //查询SQLiteDatabase中某一数据表的所有记录
             Cursor cursor=sd.rawQuery(sql,null); //Cursor中包含了查询的结果集
@@ -202,70 +155,19 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
                     cell.setCellStyle(alignStyle);
 
                     cell=row.createCell(2,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("township")));
+                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("field1")));
                     cell.setCellStyle(alignStyle);
 
                     cell=row.createCell(3,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("village")));
+                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("field2")));
                     cell.setCellStyle(alignStyle);
 
                     cell=row.createCell(4,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("principalOfVillage")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(5,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("tel")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(6,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("number")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(7,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("JBNTTBH")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(8,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("ZM")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(9,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("XDM")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(10,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("CBR")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(11,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("MJ")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(12,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("GDLX")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(13,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("remarks")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(14,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("DCR")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(15,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("ZFZR")));
-                    cell.setCellStyle(alignStyle);
-
-                    cell=row.createCell(16,Cell.CELL_TYPE_STRING);
-                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("JLR")));
+                    cell.setCellValue(cursor.getString(cursor.getColumnIndex("field3")));
                     cell.setCellStyle(alignStyle);
 
                 }while(cursor.moveToNext());
             }
-
-
-            Log.d("exists",excelPath);
 
 
             FileOutputStream outputStream=new FileOutputStream(excelPath);

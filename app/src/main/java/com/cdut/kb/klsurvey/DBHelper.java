@@ -16,21 +16,10 @@ public class DBHelper extends SQLiteOpenHelper {
     private static String create_table_surveyInfo="create table surveyInfo(" +
             "id integer primary key autoincrement,"+
             "BSM text,"+
-            "township text," +
-            "village text," +
-            "principalOfVillage text," +
-            "tel text," +
-            "number text," +
-            "JBNTTBH text," +
-            "ZM text," +
-            "XDM text," +
-            "CBR text," +
-            "MJ real," +
-            "GDLX text," +
-            "remarks text," +
-            "DCR text," +
-            "ZFZR text," +
-            "JLR text)";
+            "field1 text," +
+            "field2 text," +
+            "field3 text)" ;
+
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

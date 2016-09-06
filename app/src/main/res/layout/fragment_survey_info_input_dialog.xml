@@ -45,30 +45,40 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/township"/>
-                <EditText
-                    android:id="@+id/township_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="flagNoExtractUi"
-                    /> <!--android:imeOptions="flagNoExtractUi"在横屏的情况下避免输入法把整个屏幕都覆盖。保证仍然能看到应用程序界面-->
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/village"
+                    android:text="@string/field1"
                     />
                 <EditText
-                    android:id="@+id/village_value"
+                    android:id="@+id/field1_value"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/field2"/>
+                <RadioGroup
+                    android:id="@+id/field2_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/activity_horizontal_margin">
+                    <RadioButton
+                        android:id="@+id/field2_v1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/field2_v1"
+                        android:checked="true"/>
+                    <RadioButton
+                        android:id="@+id/field2_v2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/field2_v2"/>
+                </RadioGroup>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,208 +87,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/principalOfVillage"/>
-                <EditText
-                    android:id="@+id/principalOfVillage_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tel"/>
-                <EditText
-                    android:id="@+id/tel_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:digits="1234567890"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#778899"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number"/>
-                <EditText
-                    android:id="@+id/number_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/JBNTTBH"/>
-                <EditText
-                    android:id="@+id/JBNTTBH_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ZM"/>
-                <EditText
-                    android:id="@+id/ZM_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/XDM"/>
-                <EditText
-                    android:id="@+id/XDM_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/CBR"/>
-                <EditText
-                    android:id="@+id/CBR_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/MJ"/>
-                <EditText
-                    android:id="@+id/MJ_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:digits="1234567890."
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/GDLX"/>
-                <EditText
-                    android:id="@+id/GDLX_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/remarks"/>
-                <EditText
-                    android:id="@+id/remarks_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#778899"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/DCR"/>
-                <EditText
-                    android:id="@+id/DCR_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ZFZR"/>
-                <EditText
-                    android:id="@+id/ZFZR_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/JLR"/>
-                <EditText
-                    android:id="@+id/JLR_value"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:imeOptions="flagNoExtractUi"
-                    android:layout_height="wrap_content"
+                    android:text="@string/field3"
                     />
+                <Spinner
+                    android:id="@+id/field3_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/valuesOfField3">
+
+                </Spinner>
             </LinearLayout>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
