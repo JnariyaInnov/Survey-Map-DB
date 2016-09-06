@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="valuesOfField3">
-        <item>value1</item>
-        <item>value2</item>
-        <item>value3</item>
+        <item>值1</item>
+        <item>值2</item>
+        <item>值3</item>
     </string-array>
 </resources>

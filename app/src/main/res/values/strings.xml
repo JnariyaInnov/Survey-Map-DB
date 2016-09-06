@@ -1,19 +1,22 @@
 <resources>
     <string name="app_name">KLSurvey</string>
-    <string name="BSM">标识码</string>
-    <string name="field1">字段1</string>
+    <string name="BSM">identifier</string>
+    <string name="field1">field1</string>
 
-    <string name="field2">字段2</string>
-    <string name="field2_v1">值1</string>
-    <string name="field2_v2">值2</string>
+    <string name="field2">field2</string>
+    <string name="field2_v1">value1</string>
+    <string name="field2_v2">value2</string>
 
-    <string name="field3">字段3</string>
+    <string name="field3">field3</string>
 
-    <string name="inputOK">确定</string>
-    <string name="inputCancel">取消</string>
-    <string name="takePhoto">拍照</string>
+    <string name="inputOK">OK</string>
+    <string name="inputCancel">Cancel</string>
+    <string name="takePhoto">Taking Photos</string>
 
 
-    <string name="actionbar_title">KLSurvey外业调绘系统</string>
+    <string name="searchParcel">SearchParcel</string>
+
+
+    <string name="actionbar_title">KLSurvey Surveying System</string>
 
 </resources>

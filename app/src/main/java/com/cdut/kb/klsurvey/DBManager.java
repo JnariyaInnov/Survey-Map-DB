@@ -37,9 +37,17 @@ public class DBManager { //数据库工具类
 
         long result=-1;
         if((result=sd.insert(tableName,null,contentValues))==-1){
-            Toast.makeText(mContext, "增加数据失败", Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(mContext, "增加数据失败", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(mContext, "Add Data Failed", Toast.LENGTH_SHORT).show();
+            }
         }else{
-            Toast.makeText(mContext, "增加数据成功", Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(mContext, "增加数据成功", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(mContext, "Add Data Success", Toast.LENGTH_SHORT).show();
+            }
         }
         return result;
     }

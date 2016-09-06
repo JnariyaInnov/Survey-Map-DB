@@ -41,13 +41,33 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
 
     public static void searchParcel(){ //查询图斑
         AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.mainActivity);
-        builder.setTitle("查询图斑"); //设置标题
+
+        if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+            builder.setTitle("查询图斑"); //设置标题
+        }else{
+            builder.setTitle("SearchParcel"); //设置标题
+        }
+
         builder.setIcon(android.R.drawable.ic_menu_info_details);//设置标题栏上的图标
         final EditText editText_in_alert_dialog=new EditText(MainActivity.mainActivity);
-        editText_in_alert_dialog.setHint("请输入要查询图斑的标识码");
+        if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+            editText_in_alert_dialog.setHint("请输入要查询图斑的标识码");
+        }else{
+            editText_in_alert_dialog.setHint("please enter the identifier of the parcel");
+        }
+
         builder.setView(editText_in_alert_dialog);//设置AlertDialog内部的自定义视图
 
-        builder.setPositiveButton("查询", new DialogInterface.OnClickListener() {
+        String str_search=null;
+        String str_cancel=null;
+        if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+            str_search="查询";
+            str_cancel="取消";
+        }else{
+            str_search="Search";
+            str_cancel="Cancel";
+        }
+        builder.setPositiveButton(str_search, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -88,7 +108,7 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
                 }
             }
         });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(str_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -109,7 +129,15 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
         
         try {
             HSSFWorkbook workbook=new HSSFWorkbook(); //创建Excel工作薄
-            HSSFSheet sheet=workbook.createSheet("导出结果"); //在工作薄中创建工作表
+
+            HSSFSheet sheet=null;
+
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                sheet=workbook.createSheet("导出结果"); //在工作薄中创建工作表
+            }else{
+                sheet=workbook.createSheet("Export Result"); //在工作薄中创建工作表
+            }
+
 
             //样式(经测试，把样式设置在行上无效，但每个单元格依次设置则有效，不知道为什么？)
             HSSFCellStyle alignStyle=workbook.createCellStyle();
@@ -119,23 +147,43 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
             HSSFRow sheetHeader=sheet.createRow(0); //第一行为表头
 
             HSSFCell cellA1=sheetHeader.createCell(0, Cell.CELL_TYPE_STRING);
-            cellA1.setCellValue("序号");
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                cellA1.setCellValue("序号");
+            }else{
+                cellA1.setCellValue("id");
+            }
             cellA1.setCellStyle(alignStyle);
 
             HSSFCell cellA2=sheetHeader.createCell(1,Cell.CELL_TYPE_STRING);
-            cellA2.setCellValue("标识码");
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                cellA2.setCellValue("标识码");
+            }else{
+                cellA2.setCellValue("BSM(identifier)");
+            }
             cellA2.setCellStyle(alignStyle);
 
             HSSFCell cellA3=sheetHeader.createCell(2,Cell.CELL_TYPE_STRING);
-            cellA3.setCellValue("字段1");
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                cellA3.setCellValue("字段1");
+            }else{
+                cellA3.setCellValue("field1");
+            }
             cellA3.setCellStyle(alignStyle);
 
             HSSFCell cellA4=sheetHeader.createCell(3,Cell.CELL_TYPE_STRING);
-            cellA4.setCellValue("字段2");
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                cellA4.setCellValue("字段2");
+            }else{
+                cellA4.setCellValue("field2");
+            }
             cellA4.setCellStyle(alignStyle);
 
             HSSFCell cellA5=sheetHeader.createCell(4,Cell.CELL_TYPE_STRING);
-            cellA5.setCellValue("字段3");
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                cellA5.setCellValue("字段3");
+            }else{
+                cellA5.setCellValue("field3");
+            }
             cellA5.setCellStyle(alignStyle);
 
 
@@ -175,21 +223,36 @@ public class LeftListViewMethods { //侧边栏中ListView子项的响应事件
             workbook.write(outputStream);
             outputStream.close();
             cursor.close();//关闭游标，释放其资源
-            Toast.makeText(MainActivity.mainActivity, "导出数据表成功", Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(MainActivity.mainActivity, "导出数据表成功", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(MainActivity.mainActivity, "Export Data Success", Toast.LENGTH_SHORT).show();
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(MainActivity.mainActivity,"导出数据表失败",Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(MainActivity.mainActivity,"导出数据表失败",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(MainActivity.mainActivity,"Export Data Failed",Toast.LENGTH_SHORT).show();
+            }
         }
-
     }
 
 
     public static void author_info(){ //显示作者信息
         AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.mainActivity);
-        builder.setTitle("作者信息"); //作者信息
-        builder.setIcon(android.R.drawable.ic_menu_info_details);//设置标题栏上的图标
-        builder.setMessage("设计者：任飞翔\nEmail：ren_feixiang@126.com");
-        builder.setPositiveButton("我知道了",null);
+        if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+            builder.setTitle("作者信息"); //作者信息
+            builder.setIcon(android.R.drawable.ic_menu_info_details);//设置标题栏上的图标
+            builder.setMessage("作者：任飞翔\nEmail：ren_feixiang@126.com");
+            builder.setPositiveButton("我知道了",null);
+        }else{
+            builder.setTitle("Author Info"); //Author Info
+            builder.setIcon(android.R.drawable.ic_menu_info_details);//设置标题栏上的图标
+            builder.setMessage("Author：Fishelren\nEmail：ren_feixiang@126.com");
+            builder.setPositiveButton("Got It",null);
+        }
         builder.show();
     }
 }

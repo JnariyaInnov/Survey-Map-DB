@@ -5,8 +5,10 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -21,6 +23,7 @@ import com.esri.android.map.ags.ArcGISLocalTiledLayer;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class MainActivity extends Activity { //主活动
@@ -45,6 +48,7 @@ public class MainActivity extends Activity { //主活动
     private float offset;
     private  boolean flipped;
     // ---
+    public static String currentLanguageEnvironment=null; //当前的语言环境(中文/英文等)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,11 @@ public class MainActivity extends Activity { //主活动
         //requestWindowFeature(Window.FEATURE_NO_TITLE);//这句话在AppCompatActivity下无效，
         //无法去掉标题栏，需要继承自Activity才有效
         setContentView(R.layout.activity_main);
+
+        //得到当前的语言环境
+        Locale locale=getResources().getConfiguration().locale;
+        currentLanguageEnvironment=locale.getLanguage();
+        //Log.d("currentLanguage",currentLanguageEnvironment);
 
         initDrawerLayout();//初始化DrawerLayout
 
@@ -78,6 +87,8 @@ public class MainActivity extends Activity { //主活动
 
         //初始化数据库
         initDB();
+
+
     }
 
     private void initDB(){ //初始化数据库
@@ -146,33 +157,63 @@ public class MainActivity extends Activity { //主活动
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 LeftListViewItem item=leftListViewItems.get(position);//得到被点击的子项
                 drawerLayout.closeDrawers(); //收回DrawerLayout的侧边栏
-                switch (item.getText()){
-                    case "查询图斑":
-                        LeftListViewMethods.searchParcel();
-                        break;
-                    case "导出属性信息":
-                        LeftListViewMethods.exportTableAsExcel(MainActivity.sd,"surveyInfo",CommonUtil.getSdCardPath()+ File.separator+"KLSurveyData"+File.separator+"excel"+File.separator+"output.xlsx");
-                        //Toast.makeText(MainActivity.this, "导出属性信息", Toast.LENGTH_SHORT).show();
-                        break;
-                    case "作者信息":
-                        LeftListViewMethods.author_info();
-                        break;
-                    default:
+                if(currentLanguageEnvironment.endsWith("zh")){
+                    switch (item.getText()){
+                        case "查询图斑":
+                            LeftListViewMethods.searchParcel();
+                            break;
+                        case "导出属性信息":
+                            LeftListViewMethods.exportTableAsExcel(MainActivity.sd,"surveyInfo",CommonUtil.getSdCardPath()+ File.separator+"KLSurveyData"+File.separator+"excel"+File.separator+"output.xlsx");
+                            //Toast.makeText(MainActivity.this, "导出属性信息", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "作者信息":
+                            LeftListViewMethods.author_info();
+                            break;
+                        default:
+                    }
+                }else{
+                    switch (item.getText()){
+                        case "SearchParcel":
+                            LeftListViewMethods.searchParcel();
+                            break;
+                        case "ExportAttributeInfo":
+                            LeftListViewMethods.exportTableAsExcel(MainActivity.sd,"surveyInfo",CommonUtil.getSdCardPath()+ File.separator+"KLSurveyData"+File.separator+"excel"+File.separator+"output.xlsx");
+                            //Toast.makeText(MainActivity.this, "导出属性信息", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "AuthorInfo":
+                            LeftListViewMethods.author_info();
+                            break;
+                        default:
+                    }
                 }
+
             }
         });
 
     }
 
     private void initLeftListViewItems(List<LeftListViewItem> leftListViewItems){ //初始化侧边栏中ListView的子项列表
-        LeftListViewItem list_item_search_parcel=new LeftListViewItem("查询图斑",R.drawable.left_side_listview_item_mark);
-        leftListViewItems.add(list_item_search_parcel);
+        if(currentLanguageEnvironment.endsWith("zh")){
+            LeftListViewItem list_item_search_parcel=new LeftListViewItem("查询图斑",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_search_parcel);
 
-        LeftListViewItem list_item_export_attribute_info=new LeftListViewItem("导出属性信息",R.drawable.left_side_listview_item_mark);
-        leftListViewItems.add(list_item_export_attribute_info);
+            LeftListViewItem list_item_export_attribute_info=new LeftListViewItem("导出属性信息",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_export_attribute_info);
 
-        LeftListViewItem list_item_author_info=new LeftListViewItem("作者信息",R.drawable.left_side_listview_item_mark);
-        leftListViewItems.add(list_item_author_info);
+            LeftListViewItem list_item_author_info=new LeftListViewItem("作者信息",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_author_info);
+        }
+        else{
+            LeftListViewItem list_item_search_parcel=new LeftListViewItem("SearchParcel",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_search_parcel);
+
+            LeftListViewItem list_item_export_attribute_info=new LeftListViewItem("ExportAttributeInfo",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_export_attribute_info);
+
+            LeftListViewItem list_item_author_info=new LeftListViewItem("AuthorInfo",R.drawable.left_side_listview_item_mark);
+            leftListViewItems.add(list_item_author_info);
+        }
+
     }
 
 

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">KLSurvey</string>
+    <string name="BSM">标识码</string>
+    <string name="field1">字段1</string>
+
+    <string name="field2">字段2</string>
+    <string name="field2_v1">值1</string>
+    <string name="field2_v2">值2</string>
+
+    <string name="field3">字段3</string>
+
+    <string name="inputOK">确定</string>
+    <string name="inputCancel">取消</string>
+    <string name="takePhoto">拍照</string>
+
+    <string name="searchParcel">查询图斑</string>
+
+    <string name="actionbar_title">KLSurvey外业调绘系统</string>
+
+</resources>

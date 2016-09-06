@@ -134,10 +134,18 @@ public class SurveyInfoInputDialogFragment extends DialogFragment { //推荐使�
         contentValues.put("field3",field3);
 
         if(MainActivity.dbManager.update("surveyInfo","BSM",BSM,contentValues)>0){
-            Toast.makeText(MainActivity.mainActivity, "更新数据成功", Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(MainActivity.mainActivity, "更新数据成功", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(MainActivity.mainActivity, "Update Data Success", Toast.LENGTH_SHORT).show();
+            }
             SurveyInfoInputDialogFragment.this.dismiss();
         }else{
-            Toast.makeText(MainActivity.mainActivity, "更新数据失败", Toast.LENGTH_SHORT).show();
+            if(MainActivity.currentLanguageEnvironment.endsWith("zh")){
+                Toast.makeText(MainActivity.mainActivity, "更新数据失败", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(MainActivity.mainActivity, "Update Data Failed", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
@@ -158,22 +166,23 @@ public class SurveyInfoInputDialogFragment extends DialogFragment { //推荐使�
 
             RadioGroup field2_radio_group= (RadioGroup) mView.findViewById(R.id.field2_value);
             String field2=cursor.getString(cursor.getColumnIndex("field2"));
-            if("值1".equals(field2)){
+
+            if("值1".equals(field2) || "value1".equals(field2)){
                 field2_radio_group.check(R.id.field2_v1);
-            }else if("值2".equals(field2)){
+            }else if("值2".equals(field2) || "value2".equals(field2)){
                 field2_radio_group.check(R.id.field2_v2);
             }
 
             Spinner field3_spinner= (Spinner) mView.findViewById(R.id.field3_value);
             String field3=cursor.getString(cursor.getColumnIndex("field3"));
-            if("值1".equals(field3)){
+
+            if("值1".equals(field3) || "value1".equals(field3)){
                 field3_spinner.setSelection(0);
-            }else if("值2".equals(field3)){
+            }else if("值2".equals(field3) || "value2".equals(field3)){
                 field3_spinner.setSelection(1);
-            }else if("值3".equals(field3)){
+            }else if("值3".equals(field3) || "value3".equals(field3)){
                 field3_spinner.setSelection(2);
             }
-
         }
         cursor.close();
     }
