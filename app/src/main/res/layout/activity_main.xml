@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cdut.kb.klsurvey.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_dimen"
+        android:background="@color/dark_gray">
+        <ImageView
+            android:id="@+id/drawer_indicator"
+            android:layout_width="@dimen/actionbar_dimen"
+            android:layout_height="@dimen/actionbar_dimen"
+            android:scaleType="centerInside"
+            android:background="@drawable/drawer_selector"
+            android:layout_gravity="start"
+            /> <!--android:scaleType控制图像如何适应ImageView-->
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/actionbar_dimen"
+            android:layout_gravity="center"
+            android:text="@string/actionbar_title"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:textColor="@color/light_gray"
+            android:gravity="center"
+            />
+    </FrameLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!--地图控件，作为DrawerLayout的主布局-->
+        <com.esri.android.map.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </com.esri.android.map.MapView>
+
+        <!--作为DrawerLayout的侧边栏-->
+        <ListView
+            android:id="@+id/left_side_listView"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:textColor="@color/light_gray"
+            android:background="@drawable/bg_left_listview"
+            android:divider="#696969"
+            android:dividerHeight="1dp"
+            ><!--android:background="@drawable/bg_left_listview"-->
+            <!--android:background="@color/darker_gray"-->
+
+        </ListView>
+        <!--<TextView
+            android:id="@+id/drawer_content"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:text="Drawer"
+            android:textColor="@color/light_gray"
+            android:background="@color/darker_gray"
+            />-->
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
