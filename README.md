@@ -5,7 +5,10 @@ This system is used for surveying data in the surveying and mapping projects.It 
 the ".shp" files as the overlay layers.It has three functions primarily.  
 
 Firstly,it provide locating function,it can tell you where you are out of door.As the picture below shows.  
+![](http://i.imgur.com/OOUvInk.png)
 
-Secondly,it can take photos for some POI(point of interest) and put them in certain location on the storage of your mobile phone.  
+Secondly,it can take photos for some POI(point of interest) and put them in certain location on the storage of your mobile phone.   
+![](http://i.imgur.com/LN71YBr.png)
 
-Thirdly,it can record some attribute information you interest and can export them as "Excel" file.
+Thirdly,it can record some attribute information you interest and can export them as "Excel" file.  
+![](http://i.imgur.com/15pyKDf.png)
